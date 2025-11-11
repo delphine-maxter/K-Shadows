@@ -1,25 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Shadows of Kowloon Tour</title>
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tour Details</title>
+  <style>
+    :root {
+      --brand: #0e7a66;
+      --ink: #0e1116;
+      --muted: #4b5563;
+      --bg: #f6faf9;
+      --card: #ffffff;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+    header {
+      padding: 18px 0 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: .02em;
+      color: var(--brand);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    }
+    h2 { margin-top: 0; }
+    .maps a {
+      display: inline-block;
+      margin: 6px 10px 6px 0;
+      padding: 10px 14px;
+      background: #eef7f4;
+      color: #0b6454;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid #d7eee7;
+      transition: background .15s ease, transform .05s ease;
+    }
+    .maps a:hover { background: #e4f2ed; transform: translateY(-1px); }
+    .muted { color: var(--muted); }
+    nav a {
+      color: var(--brand);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(14,122,102,0.35);
+    }
+    .back { margin-top: 14px; }
+  </style>
 </head>
 <body>
-<div class="split-container">
-<div class="tour-text">
-<h2>Tour Locations & Stories</h2>
-<ul>
-<li><strong>St Andrew’s Church:</strong> Victorian Gothic, haunted organ notes, chill in the nave. <a href="https://goo.gl/maps/6w7wQKowloonChurch">View on Google Maps</a></li>
-<li><strong>Temple Street Night Market:</strong> Neon-lit, fortune tellers, shadowless clients. <a href="https://goo.gl/maps/TempleStreetNightMarket">View on Google Maps</a></li>
-<li><strong>Tin Hau Temple (Yau Ma Tei):</strong> Goddess of the Sea, spirits of drowned sailors. <a href="https://goo.gl/maps/TinHauTempleYMT">View on Google Maps</a></li>
-<li><strong>Yau Ma Tei Theatre:</strong> Phantom applause, flickering lights. <a href="https://goo.gl/maps/YauMaTeiTheatre">View on Google Maps</a></li>
-<li><strong>Shanghai Street (Tong Lau Row):</strong> Pre-war shophouses, wartime echoes, lullabies. <a href="https://goo.gl/maps/ShanghaiStreetTongLau">View on Google Maps</a></li>
-<li><strong>Mei Ho House:</strong> Resettlement estate, roaming spirits. <a href="https://goo.gl/maps/MeiHoHouse">View on Google Maps</a></li>
-<li><strong>Man Fat Seafood Restaurant:</strong> Dai pai dong, Hungry Ghost Festival feasts. <a href="https://goo.gl/maps/ManFatSeafood">View on Google Maps</a></li>
-</ul>
-</div>
-</div>
+  <div class="wrap">
+    <header>
+      <h1>Tour Details</h1>
+      <p class="muted">All the information you need for the visit, including locations and map links.</p>
+    </header>
+
+    <section class="card" id="overview">
+      <h2>Overview</h2>
+      <p>
+        <!-- Replace this with your actual text -->
+        Welcome to the Sustainability & Design Tour. This session covers highlights across packaging innovations,
+        compliance checkpoints, and the latest pilots. Please review the agenda, then use the map links to navigate.
+      </p>
+    </section>
+
+    <section class="card" id="agenda">
+      <h2>Agenda</h2>
+      <ol>
+        <li>09:30 — Arrival & Registration</li>
+        <li>10:00 — Materials Lab Walkthrough</li>
+        <li>11:15 — Packaging Weight & Composition Review</li>
+        <li>12:30 — Lunch Break</li>
+        <li>14:00 — Supplier Collaboration Brief</li>
+        <li>15:30 — Q&A and Wrap-up</li>
+      </ol>
+    </section>
+
+    <section class="card" id="locations">
+      <h2>Locations & Google Maps</h2>
+      <p class="muted">Click a chip to open the location in Google Maps.</p>
+      <div class="maps">
+        <!-- Replace these URLs with your actual Google Maps links -->
+        https://maps.google.com/?q=GP+Batteries+HQGP Batteries HQ</a>
+        <atps://maps.google.com/?q=Materials+LabMaterials Lab</a>
+        https://maps.google.com/?q=Visitor+EntranceVisitor Entrance</a>
+      </div>
+    </section>
+
+    <section class="card" id="notes">
+      <h2>Notes & Contacts</h2>
+      <p>
+        <!-- Replace this with your actual text -->
+        Bring a government-issued ID for registration. PPE for the lab will be provided on-site.
+        For assistance, contact the coordination desk or your host.
+      </p>
+      <ul>
+        <li>Host: <strong>Delphine Terrien</strong> — mailto:delphine@example.comdelphine@example.com</a></li>
+        <li>Security Desk — <a href="tel:+85212345678">+852 1234 5678</a></li>
+
+    </section>
+
+    <div class="back">
+      <nav>index.html⟵ Back to countdown</a></nav>
+    </div>
+  </div>
 </body>
-</html>
