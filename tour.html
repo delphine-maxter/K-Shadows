@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tour Details</title>
+  <title>Kowloon Heritage & Mystery Tour</title>
   <style>
     :root {
       --brand: #0e7a66;
@@ -17,7 +17,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
       line-height: 1.55;
     }
     .wrap {
@@ -62,61 +62,131 @@
       border-bottom: 1px dashed rgba(14,122,102,0.35);
     }
     .back { margin-top: 14px; }
+
+    /* Route embed styles */
+    .route-embed {
+      margin-top: 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      background: #fff;
+    }
+    .route-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #d7eee7;
+      background: #eef7f4;
+      color: #0b6454;
+      transition: background .15s ease, transform .05s ease;
+    }
+    .btn:hover { background: #e4f2ed; transform: translateY(-1px); }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>Tour Details</h1>
-      <p class="muted">All the information you need for the visit, including locations and map links.</p>
+      <h1>Kowloon Heritage & Mystery Tour</h1>
+      <p class="muted">Explore historic landmarks and whispered legends along the route.</p>
     </header>
 
-    <section class="card" id="overview">
-      <h2>Overview</h2>
-      <p>
-        <!-- Replace this with your actual text -->
-        Welcome to the Sustainability & Design Tour. This session covers highlights across packaging innovations,
-        compliance checkpoints, and the latest pilots. Please review the agenda, then use the map links to navigate.
-      </p>
-    </section>
+    <!-- Route Map Embed -->
+    <section class="card" aria-labelledby="route-title">
+      <h2 id="route-title">Route Map</h2>
+      <p class="muted">Use the embedded map (or open the full route) to navigate the sequence of stops.</p>
 
-    <section class="card" id="agenda">
-      <h2>Agenda</h2>
-      <ol>
-        <li>09:30 — Arrival & Registration</li>
-        <li>10:00 — Materials Lab Walkthrough</li>
-        <li>11:15 — Packaging Weight & Composition Review</li>
-        <li>12:30 — Lunch Break</li>
-        <li>14:00 — Supplier Collaboration Brief</li>
-        <li>15:30 — Q&A and Wrap-up</li>
-      </ol>
-    </section>
+      <!-- Paste your Google Maps or My Maps embed iframe in place of the src="#" below -->
+      <div class="route-embed">
+        <iframe
+          title="Google Maps Route"
+          src="#"
+          width="100%"
+          height="420"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
 
-    <section class="card" id="locations">
-      <h2>Locations & Google Maps</h2>
-      <p class="muted">Click a chip to open the location in Google Maps.</p>
+      <div class="route-actions">
+        <!-- Works immediately: opens Google Maps directions with all stops in order -->
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/dir/St+Andrew%E2%80%99s+Church+Hong+Kong/Temple+Street+Night+Market/Tin+Hau+Temple+Yau+Ma+Tei/Yau+Ma+Tei+Theatre/600-626+Shanghai+Street,+Mong+Kok/Mei+Ho+House,+Sham+Shui+Po/Man+Fat+Seafood+Restaurant,+Sham+Shui+Po">
+          Open full route in Google Mapsndrew’s is a Victorian Gothic brick church designed by Leigh &amp; Orange. It is listed as a Grade I historic building and, during the Second World War, was converted into a Shinto shrine under Japanese occupation before being restored.</p>
+      <p><em>Parishioners have long whispered about faint organ notes after midnight and a chill in the nave when no one is present.</em></p>
+      <p class="muted">Next Segment: ~0.66 km (~8 mins)</p>
       <div class="maps">
-        <!-- Replace these URLs with your actual Google Maps links -->
-        https://maps.google.com/?q=GP+Batteries+HQGP Batteries HQ</a>
-        <atps://maps.google.com/?q=Materials+LabMaterials Lab</a>
-        https://maps.google.com/?q=Visitor+EntranceVisitor Entrance</a>
+        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=St+Andrew%E2%80%99s+Church+Hong+Kong">View on Google Maps</a>
+le Street Night Market -->
+    <section class="card">
+      <h2>Temple Street Night Market</h2>
+      <p>Named for the nearby Tin Hau Temple, Temple Street has evolved into Hong Kong’s most storied night market—a neon-lit corridor known for street food and fortune tellers, active nightly with the best atmosphere after sunset.</p>
+      <p><em>Fortune tellers say some clients leave no shadow beneath the lamps—an omen that the reading is for more than one life.</em></p>
+      <p class="muted">Next Segment: ~0.26 km (~3 mins)</p>
+      <div class="maps">
+        https://maps.google.com/?q=Temple+Street+Night+MarketView on Google Maps</a>
       </div>
     </section>
 
-    <section class="card" id="notes">
-      <h2>Notes & Contacts</h2>
-      <p>
-        <!-- Replace this with your actual text -->
-        Bring a government-issued ID for registration. PPE for the lab will be provided on-site.
-        For assistance, contact the coordination desk or your host.
-      </p>
-      <ul>
-        <li>Host: <strong>Delphine Terrien</strong> — mailto:delphine@example.comdelphine@example.com</a></li>
-        <li>Security Desk — <a href="tel:+85212345678">+852 1234 5678</a></li>
-
+    <!-- Tin Hau Temple -->
+    <section class="card">
+      <h2>Tin Hau Temple (Yau Ma Tei)</h2>
+      <p>The temple complex—among Kowloon’s largest—dates to the mid-19th century, dedicated to Tin Hau, Goddess of the Sea and includes halls once used for worship, arbitration and free schooling for boat and land people.</p>
+      <p><em>Spirits of drowned sailors linger near the altar; fortune tellers report strange presences after dark.</em></p>
+      <p class="muted">Next Segment: ~0.32 km (~4 mins)</p>
+      <div class="maps">
+        https://maps.google.com/?q=Tin+Hau+Temple+Yau+Ma+TeiView on Google Maps</a>
+      </div>
     </section>
 
-    <div class="back">
+    <!-- Yau Ma Tei Theatre -->
+    <section class="card">
+      <h2>Yau Ma Tei Theatre</h2>
+      <p>Built in 1930 and revived in 2012 as a Cantonese opera venue, this is Kowloon’s only surviving pre–World War II theatre. Its Art Deco façade and timber roof trusses frame a rare link between cinema and opera heritage.</p>
+      <p><em>Projectionists reported phantom applause and flickering lights in empty halls.</em></p>
+      <p class="muted">Next Segment: ~0.83 km (~11 mins)</p>
+      <div class="maps">
+        https://maps.google.com/?q=Yau+Ma+Tei+TheatreView on Google Maps</a>
+      </div>
+    </section>
+
+    <!-- Shanghai Street -->
+    <section class="card">
+      <h2>Shanghai Street (Tong Lau Row)</h2>
+      <p>The pre-war shophouses (tong lau) at Nos. 600–626 are Grade I historic buildings. Tong lau typify Hong Kong’s urban past: shopfronts at street level, living quarters above, verandahs over arcades—evolving from 19th-century forms to Art Deco-influenced blocks by the 1930s.</p>
+      <p><em>Wartime screams said to echo in abandoned upper floors; lullabies from families who slept above their shops.</em></p>
+      <p class="muted">Next Segment: ~1.67 km (~22 mins)</p>
+      <div class="maps">
+        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=600-626+Shanghai+Street+Hong+Kong">View on Google Maps</a>
+Ho House -->
+    <section class="card">
+      <h2>Mei Ho House</h2>
+      <p>The last surviving H-block of the Shek Kip Mei resettlement estate, Mei Ho House was completed in 1954 after the devastating Christmas Day 1953 fire displaced over 53,000 residents. Today it operates as a youth hostel and museum interpreting early public housing life.</p>
+      <p><em>Residents once spoke of spirits roaming cramped corridors at night.</em></p>
+      <p class="muted">Next Segment: ~0.42 km (~5 mins)</p>
+      <div class="maps">
+        https://maps.google.com/?q=Mei+Ho+House+Hong+KongView on Google Maps</a>
+      </div>
+    </section>
+
+    <!-- Man Fat Seafood Restaurant -->
+    <section class="card">
+      <h2>Man Fat Seafood Restaurant</h2>
+      <p>Opened in the 1970s as a modest dai pai dong-style eatery in Sham Shui Po. Became famous for live seafood tanks, signature dishes like typhoon shelter crab, and affordable banquets. Featured in local media as a nostalgic spot preserving old-school Hong Kong dining culture.</p>
+      <p><em>During the Hungry Ghost Festival, locals joke that “hungry spirits” join midnight feasts, especially when tables are full and laughter echoes late into the night.</em></p>
+      <div class="maps">
+        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Man+Fat+Seafood+Restaurant+Sham+Shui+Po">View on Google Maps</a>
+s="back">
       <nav>index.html⟵ Back to countdown</a></nav>
     </div>
   </div>
