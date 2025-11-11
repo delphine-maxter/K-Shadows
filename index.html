@@ -1,166 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unlock Countdown</title>
-  <style>
-    :root {
-      --brand: #0e7a66;       /* GP green-ish */
-      --brandGlow: #34d3b4;   /* glow accent */
-      --disabled: #9aa5a9;
-      --bg: #0b0f14;
-      --text: #eef4f6;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(1200px 800px at 50% 20%, #0f1923, #0b0f14 60%);
-      color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-    }
-
-    .card {
-      width: min(92vw, 540px);
-      padding: 28px 28px 34px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-      text-align: center;
-    }
-
-    h1 { font-size: 1.5rem; margin: 0 0 8px; }
-    #countdown { font-size: 1.05rem; opacity: 0.9; margin-bottom: 22px; }
-
-    #unlockBtn {
-      appearance: none;
-      border: none;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-      position: relative;
-      color: #081412;
-      background: linear-gradient(135deg, var(--brand) 0%, #14a389 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.25),
-        0 6px 18px rgba(20,163,137,0.25);
-    }
-
-    #unlockBtn:hover:not([disabled]) {
-      transform: translateY(-1px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.25),
-        0 10px 26px rgba(20,163,137,0.35);
-    }
-
-    #unlockBtn:active:not([disabled]) {
-      transform: translateY(0);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.25),
-        0 4px 12px rgba(20,163,137,0.28);
-    }
-
-    /* Disabled visual state but keep element in DOM; pointer-events will be off by attribute below */
-    #unlockBtn[disabled] {
-      background: linear-gradient(135deg, #4a5a5b 0%, #6a7a7b 100%);
-      color: #e7ecec;
-      box-shadow: none;
-    }
-    #unlockBtn[disabled] { pointer-events: none; }
-
-    /* Glow effect when unlocked */
-    .glow {
-      animation: pulseGlow 1.6s ease-in-out infinite;
-      box-shadow:
-        0 0 0 0 rgba(52, 211, 180, 0.55),
-        0 0 28px 4px rgba(52, 211, 180, 0.35),
-        inset 0 1px 0 rgba(255,255,255,0.25);
-    }
-
-    @keyframes pulseGlow {
-      0%   { box-shadow: 0 0 0 0 rgba(52,211,180,0.55), 0 0 28px 4px rgba(52,211,180,0.35), inset 0 1px 0 rgba(255,255,255,0.25); }
-      50%  { box-shadow: 0 0 0 6px rgba(52,211,180,0.00), 0 0 44px 10px rgba(52,211,180,0.55), inset 0 1px 0 rgba(255,255,255,0.25); }
-      100% { box-shadow: 0 0 0 0 rgba(52,211,180,0.55), 0 0 28px 4px rgba(52,211,180,0.35), inset 0 1px 0 rgba(255,255,255,0.25); }
-    }
-
-    small.hint { display:block; margin-top:12px; opacity:0.7; }
-  </style>
+<meta charset="UTF-8">
+<title>Shadows of Kowloon</title>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h1>Tour Unlock</h1>
-    <div id="countdown" aria-live="polite">Calculating…</div>
-    <button id="unlockBtn" type="button" aria-label="Unlock tour">LOCKED</button>
-    <small class="hint">The button will glow and unlock automatically at the scheduled time.</small>
-  </div>
-
-  <script>
-    // Returns 7:30 PM tomorrow local time
-    function getUnlockTime() {
-      const now = new Date();
-      const unlock = new Date(now);
-      unlock.setDate(now.getDate() + 1);
-      unlock.setHours(19, 30, 0, 0); // 7:30 PM
-      return unlock;
-    }
-
-    const countdownEl = document.getElementById('countdown');
-    const unlockBtn = document.getElementById('unlockBtn');
-
-    let countdownInterval = null;
-
-    function updateCountdown() {
-      const now = new Date();
-      const unlockTime = getUnlockTime();
-      const diff = unlockTime - now;
-
-      if (diff > 0) {
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secs  = Math.floor((diff % (1000 * 60)) / 1000);
-
-        countdownEl.textContent = `Unlocks in ${hours}h ${mins}m ${secs}s`;
-
-        // Lock visual state
-        unlockBtn.setAttribute('disabled', 'true');
-        unlockBtn.classList.remove('glow');
-        unlockBtn.textContent = 'LOCKED';
-      } else {
-        countdownEl.textContent = 'Unlocked!';
-        unlockBtn.removeAttribute('disabled');
-        unlockBtn.classList.add('glow');
-        unlockBtn.textContent = 'UNLOCK';
-
-        // Stop the timer once unlocked
-        if (countdownInterval) {
-          clearInterval(countdownInterval);
-          countdownInterval = null;
-        }
-      }
-    }
-
-    // Use addEventListener to avoid overriding elsewhere
-    unlockBtn.addEventListener('click', function () {
-      const disabled = unlockBtn.hasAttribute('disabled');
-      if (!disabled) {
-        // Navigate to tour.html
-        window.location.href = 'tour.html';
-      }
-    });
-
-    // Initial paint + heartbeat
-    updateCountdown();
-    countdownInterval = setInterval(updateCountdown, 1000);
-  </script>
+<div class="centered-container">
+<h1 class="title">Shadows of Kowloon</h1>
+<div class="intro">
+Step quietly into the heart of Kowloon, where history lingers in the brickwork and neon, and every alley has a secret. As dusk falls, the city’s familiar bustle gives way to whispers—echoes of vanished footsteps, flickers of forgotten lanterns, and tales that refuse to fade.
+Tonight, you’ll trace a path through haunted churches, spectral markets, and storied temples. Some say the shadows here are deeper, the air colder, and the stories… not quite finished. Are you ready to walk where the living and the restless meet? The tour begins when the city’s lights flicker—and not all who listen to the tales will be seen.
+</div>
+<div class="countdown" id="countdown"></div>
+<button class="unlock-btn" id="unlockBtn">LOCKED</button>
+</div>
+<script src="main.js"></script>
 </body>
 </html>
